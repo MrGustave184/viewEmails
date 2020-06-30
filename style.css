@@ -29,6 +29,7 @@
     width: 150px;
     top: 350px;
     left: 540px;
+    color: white;
 }
 
 .square2 {
@@ -41,6 +42,7 @@
     width: 150px;
     top: 350px;
     left: 290px;
+    color: white;
 }
 
 #table {
@@ -52,6 +54,6 @@
     left: 262px;
     border-radius: 5px;
     transition: transform 1s;
-    /* margin-bottom: -300px; */
+    color: white;
 }
 
