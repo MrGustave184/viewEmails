@@ -12,29 +12,51 @@
 </head>
 <body>
 
-<div class="container-fluid">
+    <div class="container-fluid">
 
-    <div class="row">
-        <section class="col-12 text-center" id="top-menu">
-            <h1>Top Section</h1>
-        </section>
-    </div>
 
-    <div class="row">
-        <section class="col-2 text-center" id="sidebar">
-            <h3>Sidebar Menu</h3>
-        </section>
-        <section class="col-10" id="content">
-            <div class="square1">Piechart 1</div>
-            <div class="square2">Piechart 2</div>
-        </section>
-    </div>
+
+        <div class="row">
+            <section class="col-12 text-center" id="top-menu">
+                <h1>Top Section</h1>
+            </section>
+        </div>
+
+        <div class="row">
+            <section class="col-2 text-center" id="sidebar">
+                <h3>Sidebar Menu</h3>
+            </section>
+            <section class="col-10" id="content">
+
+                <div class="piechart square1">
+                    <div data-chart="2" data-position="top" class="chart-section chart-top">
+                        Chart 2 - Section 1
+                    </div>
+                    <div class="chartLine"></div>
+                    <div class="chart-section chart-bottom">
+                        Chart 2 - Section 2
+                    </div>
+                </div>
+                <div class="piechart square2">
+                    <div data-chart="1" class="chart-section chart-top">
+                        Chart 1 - Section 1
+                    </div>
+                    <div class="chartLine"></div>
+                    <div class="chart-section chart-bottom">
+                        Chart 1 - Section 2
+                    </div>
+                </div>
+
+            </section>
+        </div>
 
 
         <section id="table">
             Participants table
         </section>
+
     </div>
+
 </div>
 
 
@@ -46,10 +68,16 @@
 
 
 <script>
-    $(".square2, .square1").on('click', function(){
+    $(".chart-section").on('click', function() {
+        let pieChart = $(this);
+        let table = $("#table");
+        let chartBackground = pieChart.css('background-color');
+        let chartText = pieChart.html();
+
         $(".square2").css('transform', 'translate(590px, -26px)');
         $(".square1").css('transform', 'translate(340px, -200px)');
-        $("#table").css('transform', 'translate(0px, -458px)');
+
+        table.css('background-color', chartBackground).css('transform', 'translate(0px, -458px)').html('Participants Table' + '<br>' + chartText);
     });
 </script>
 </body>

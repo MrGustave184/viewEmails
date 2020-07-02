@@ -1,8 +1,11 @@
-
 #top-menu {
     border: 1px solid black;
     height: 5rem;
     background-color: #e4dae8;
+}
+
+body {
+    overflow-y: hidden;
 }
 
 #sidebar {
@@ -19,30 +22,25 @@
     background-color: #97accf;
 }
 
-.square1 {
-    background: #00aa9d;
+.piechart {
     border-radius: 3px;
     height: 150px;
     margin: 50px;
     position: absolute;
     transition: transform 1s;
     width: 150px;
+    color: white;
+}
+.square1 {
+    background: #00aa9d;
     top: 350px;
     left: 540px;
-    color: white;
 }
 
 .square2 {
     background: #2b3f53;
-    border-radius: 3px;
-    height: 150px;
-    margin: 50px;
-    transition: transform 1s;
-    position: absolute;
-    width: 150px;
     top: 350px;
     left: 290px;
-    color: white;
 }
 
 #table {
@@ -57,3 +55,28 @@
     color: white;
 }
 
+.chartLine {
+    background-color: #fff;
+    height: 10%;
+    width: 100%;
+}
+
+.chart-section {
+    height: 45%;
+}
+
+.square1 .chart-top {
+    background-color:#687b99;
+}
+
+.square2 .chart-top {
+    background-color:#f0b192;
+}
+
+.square1 .chart-bottom {
+    background-color:#d1a7b2;
+}
+
+.square2 .chart-bottom {
+    background-color:#79ad95;
+}
