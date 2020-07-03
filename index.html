@@ -21,10 +21,31 @@
     </div>
 
     <div class="row">
+        
         <section class="col-2 text-center" id="sidebar">
             <h3>Sidebar Menu</h3>
         </section>
         <section class="col-10" id="content">
+            <div class="col-6">
+                <div class="input-group mt-4">
+                    <div class="input-group-btn search-panel">
+                        <ul class="dropdown-menu" role="menu">
+                        <li><a href="#contains">Contains</a></li>
+                        <li><a href="#its_equal">It's equal</a></li>
+                        <li><a href="#greather_than">Greather than ></a></li>
+                        <li><a href="#less_than">Less than  </a></li>
+                        <li class="divider"></li>
+                        <li><a href="#all">Anything</a></li>
+                        </ul>
+                    </div>
+                    <input type="hidden" name="search_param" value="all" id="search_param">         
+                    <input type="search" class="form-control bg-light search-radius" name="search-template" placeholder="Search or select template " id="search-box"  onclick="changeColors()">
+                    <span class="divider-border"></span>
+                    <button type="button" class="btn btn-default dropdown-toggle bg-light" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                </div>
+           </div>
             <div class="square1">Piechart 1</div>
             <div class="square2">Piechart 2</div>
         </section>
@@ -41,7 +62,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
 
 <script>
     $(".square2, .square1").on('click', function(){
