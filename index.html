@@ -19,11 +19,37 @@
             </section>
         </div>
 
+
+           
         <div class="row">
             <section class="col-2 text-center" id="sidebar">
                 <h3>Sidebar Menu</h3>
             </section>
+
             <section class="col-10" id="content">
+
+                <!-- Searchbar -->
+                <div class="col-6">
+                    <div class="input-group mt-4">
+                        <div class="input-group-btn search-panel">
+                            <ul class="dropdown-menu" role="menu">
+                            <li><a href="#contains">Contains</a></li>
+                            <li><a href="#its_equal">It's equal</a></li>
+                            <li><a href="#greather_than">Greather than ></a></li>
+                            <li><a href="#less_than">Less than  </a></li>
+                            <li class="divider"></li>
+                            <li><a href="#all">Anything</a></li>
+                            </ul>
+                        </div>
+                        <input type="hidden" name="search_param" value="all" id="search_param">         
+                        <input type="search" class="form-control bg-light search-radius" name="search-template" placeholder="Search or select template " id="search-box"  onclick="changeColors()">
+                        <span class="divider-border"></span>
+                        <button type="button" class="btn btn-default dropdown-toggle bg-light" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
+                    </div>
+               </div>
+                <!-- /Searchbar -->
 
                 <div class="piechart square1">
                     <div data-chart="2" data-position="top" class="chart-section chart-top">
