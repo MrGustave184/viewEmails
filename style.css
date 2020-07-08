@@ -80,3 +80,49 @@ body {
 .square2 .chart-bottom {
     background-color:#79ad95;
 }
+
+#search-box
+{
+   border-style:none;
+}
+
+.divider-border{
+    border-right: 2px solid #DFD6D6!important ;
+    height: auto;
+}
+
+.search-radius{
+    border-radius: 5px 0px 0px 5px !important; 
+    height: 3rem;
+}
+
+.btn-default{
+    border-radius: 0px 5px 5px 0px !important;
+}
+
+input[type=search]:focus{
+    outline:none !important;
+    outline-width: 0 !important;
+    background: white !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+input:focus ~ .btn-default {
+    background: white !important;
+}
+
+  .btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+
+ 
+ input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 1em;
+    width: 1em;
+    font-weight: 700;
+    background : url("images/baseline_clear_black_18dp.png") ;
+ }
