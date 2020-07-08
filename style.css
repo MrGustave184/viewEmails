@@ -1,8 +1,11 @@
-
 #top-menu {
     border: 1px solid black;
     height: 5rem;
     background-color: #e4dae8;
+}
+
+body {
+    overflow-y: hidden;
 }
 
 #sidebar {
@@ -19,26 +22,23 @@
     background-color: #97accf;
 }
 
-.square1 {
-    background: #00aa9d;
+.piechart {
     border-radius: 3px;
     height: 150px;
     margin: 50px;
     position: absolute;
     transition: transform 1s;
     width: 150px;
+    color: white;
+}
+.square1 {
+    background: #00aa9d;
     top: 350px;
     left: 540px;
 }
 
 .square2 {
     background: #2b3f53;
-    border-radius: 3px;
-    height: 150px;
-    margin: 50px;
-    transition: transform 1s;
-    position: absolute;
-    width: 150px;
     top: 350px;
     left: 290px;
 }
@@ -52,7 +52,33 @@
     left: 262px;
     border-radius: 5px;
     transition: transform 1s;
-    /* margin-bottom: -300px; */
+    color: white;
+}
+
+.chartLine {
+    background-color: #fff;
+    height: 10%;
+    width: 100%;
+}
+
+.chart-section {
+    height: 45%;
+}
+
+.square1 .chart-top {
+    background-color:#687b99;
+}
+
+.square2 .chart-top {
+    background-color:#f0b192;
+}
+
+.square1 .chart-bottom {
+    background-color:#d1a7b2;
+}
+
+.square2 .chart-bottom {
+    background-color:#79ad95;
 }
 
 #search-box
@@ -68,23 +94,19 @@
 .search-radius{
     border-radius: 5px 0px 0px 5px !important; 
     height: 3rem;
-    
 }
 
 .btn-default{
     border-radius: 0px 5px 5px 0px !important;
 }
 
-input:focus, input.form-control:focus{
+input[type=search]:focus{
     outline:none !important;
     outline-width: 0 !important;
+    background: white !important;
     box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
-}
-
-input[type=search]:focus{
-    background: white !important;    /* oranges! yey */
 }
 
 input:focus ~ .btn-default {
@@ -94,4 +116,13 @@ input:focus ~ .btn-default {
   .btn:focus,.btn:active {
     outline: none !important;
     box-shadow: none;
+ }
+
+ 
+ input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 1em;
+    width: 1em;
+    font-weight: 700;
+    background : url("images/baseline_clear_black_18dp.png") ;
  }

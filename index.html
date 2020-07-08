@@ -11,52 +11,74 @@
     <title>Emails View</title>
 </head>
 <body>
+    <div class="container-fluid">
 
-<div class="container-fluid">
+        <div class="row">
+            <section class="col-12 text-center" id="top-menu">
+                <h1>Top Section</h1>
+            </section>
+        </div>
 
-    <div class="row">
-        <section class="col-12 text-center" id="top-menu">
-            <h1>Top Section</h1>
-        </section>
-    </div>
 
-    <div class="row">
-        
-        <section class="col-2 text-center" id="sidebar">
-            <h3>Sidebar Menu</h3>
-        </section>
-        <section class="col-10" id="content">
-            <div class="col-6">
-                <div class="input-group mt-4">
-                    <div class="input-group-btn search-panel">
-                        <ul class="dropdown-menu" role="menu">
-                        <li><a href="#contains">Contains</a></li>
-                        <li><a href="#its_equal">It's equal</a></li>
-                        <li><a href="#greather_than">Greather than ></a></li>
-                        <li><a href="#less_than">Less than  </a></li>
-                        <li class="divider"></li>
-                        <li><a href="#all">Anything</a></li>
-                        </ul>
+           
+        <div class="row">
+            <section class="col-2 text-center" id="sidebar">
+                <h3>Sidebar Menu</h3>
+            </section>
+
+            <section class="col-10" id="content">
+
+                <!-- Searchbar -->
+                <div class="col-6">
+                    <div class="input-group mt-4">
+                        <div class="input-group-btn search-panel">
+                            <ul class="dropdown-menu" role="menu">
+                            <li><a href="#contains">Contains</a></li>
+                            <li><a href="#its_equal">It's equal</a></li>
+                            <li><a href="#greather_than">Greather than ></a></li>
+                            <li><a href="#less_than">Less than  </a></li>
+                            <li class="divider"></li>
+                            <li><a href="#all">Anything</a></li>
+                            </ul>
+                        </div>
+                        <input type="hidden" name="search_param" value="all" id="search_param">         
+                        <input type="search" class="form-control bg-light search-radius" name="search-template" placeholder="Search or select template " id="search-box"  onclick="changeColors()">
+                        <span class="divider-border"></span>
+                        <button type="button" class="btn btn-default dropdown-toggle bg-light" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
                     </div>
-                    <input type="hidden" name="search_param" value="all" id="search_param">         
-                    <input type="search" class="form-control bg-light search-radius" name="search-template" placeholder="Search or select template " id="search-box"  onclick="changeColors()">
-                    <span class="divider-border"></span>
-                    <button type="button" class="btn btn-default dropdown-toggle bg-light" data-toggle="dropdown">
-                        <span class="caret"></span>
-                    </button>
+               </div>
+                <!-- /Searchbar -->
+
+                <div class="piechart square1">
+                    <div data-chart="2" data-position="top" class="chart-section chart-top">
+                        Chart 2 - Section 1
+                    </div>
+                    <div class="chartLine"></div>
+                    <div class="chart-section chart-bottom">
+                        Chart 2 - Section 2
+                    </div>
                 </div>
-           </div>
-            <div class="square1">Piechart 1</div>
-            <div class="square2">Piechart 2</div>
+                <div class="piechart square2">
+                    <div data-chart="1" class="chart-section chart-top">
+                        Chart 1 - Section 1
+                    </div>
+                    <div class="chartLine"></div>
+                    <div class="chart-section chart-bottom">
+                        Chart 1 - Section 2
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+        <section id="table">
+            Participants table
         </section>
     </div>
 
-
-        <section id="table"></section>
-    </div>
 </div>
-
-
 
 <!-- Bootstrap and jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -64,10 +86,16 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script>
-    $(".square2, .square1").on('click', function(){
+    $(".chart-section").on('click', function() {
+        let pieChart = $(this);
+        let table = $("#table");
+        let chartBackground = pieChart.css('background-color');
+        let chartText = pieChart.html();
+
         $(".square2").css('transform', 'translate(590px, -26px)');
         $(".square1").css('transform', 'translate(340px, -200px)');
-        $("#table").css('transform', 'translate(0px, -458px)');
+
+        table.css('background-color', chartBackground).css('transform', 'translate(0px, -458px)').html('Participants Table' + '<br>' + chartText);
     });
 </script>
 </body>
