@@ -27,29 +27,40 @@
             </section>
 
             <section class="col-10" id="content">
-
-                <!-- Searchbar -->
-                <div class="col-6">
-                    <div class="input-group mt-4">
+                <div class="row">
+                    <!-- Searchbar -->
+                    <div class="col-6">
+                      <div class="input-group mt-4">
                         <div class="input-group-btn search-panel">
-                            <ul class="dropdown-menu" role="menu">
+                          <ul class="dropdown-menu" role="menu">
                             <li><a href="#contains">Contains</a></li>
                             <li><a href="#its_equal">It's equal</a></li>
                             <li><a href="#greather_than">Greather than ></a></li>
                             <li><a href="#less_than">Less than  </a></li>
                             <li class="divider"></li>
                             <li><a href="#all">Anything</a></li>
-                            </ul>
+                          </ul>
                         </div>
-                        <input type="hidden" name="search_param" value="all" id="search_param">         
-                        <input type="search" class="form-control bg-light search-radius" name="search-template" placeholder="Search or select template " id="search-box"  onclick="changeColors()">
+                        <input type="hidden" name="search_param" value="all" id="search_param">
+                        <input type="search" class="form-control search-radius" name="search-template" placeholder="Search or select template " id="search-box">
                         <span class="divider-border"></span>
-                        <button type="button" class="btn btn-default dropdown-toggle bg-light" data-toggle="dropdown">
-                            <span class="caret"></span>
-                        </button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                        </button>
+                
+                      </div>
                     </div>
-               </div>
-                <!-- /Searchbar -->
+                    <!-- /Searchbar -->
+                
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div id="result">
+                      <!--search result will come here-->
+                      </div>
+                    </div>
+                  </div>
+               
 
                 <div class="piechart square1">
                     <div data-chart="2" data-position="top" class="chart-section chart-top">
@@ -84,6 +95,32 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+       $("#search-box").keyup(function() {
+  var uls = "";
+  //empty any result under results div
+  $(".results").empty();
+  var search = $(this).val().toUpperCase();
+  //checking if seacrh is not empty
+  if (search != null && search != "") {
+    uls = "<ul class='results'>";
+    //looping through li
+    $(".dropdown-menu  > li a").each(function() {
+      //checking if value of <a> and search same
+      if ($(this).text().toUpperCase().indexOf(search) > -1) {
+        //append that value to show under results
+        uls += "<li><a href='#'>" + $(this).text() + "</a></li>";
+
+      }
+    });
+    uls += "</ul>";
+    //add to div
+    $("#result").html(uls);
+  }
+
+
+})
+</script>
 
 <script>
     $(".chart-section").on('click', function() {
