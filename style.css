@@ -94,13 +94,15 @@ body {
 .search-radius{
     border-radius: 5px 0px 0px 5px !important; 
     height: 3rem;
+    background: #EEEEEE ;
 }
 
 .btn-default{
     border-radius: 0px 5px 5px 0px !important;
+    background: #EEEEEE ;
 }
 
-input[type=search]:focus{
+input[type=search]:focus {
     outline:none !important;
     outline-width: 0 !important;
     background: white !important;
@@ -126,3 +128,19 @@ input:focus ~ .btn-default {
     font-weight: 700;
     background : url("images/baseline_clear_black_18dp.png") ;
  }
+
+ .results {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .results li a {
+    border: 1px solid #ddd;
+    background-color: #f6f6f6;
+    padding: 12px;
+    font-size: 18px;
+    color: black;
+    display: block
+  }
