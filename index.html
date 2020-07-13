@@ -30,25 +30,28 @@
                 <div class="row">
                     <!-- Searchbar -->
                     <div class="col-6">
-                      <div class="input-group mt-4">
-                        <div class="input-group-btn search-panel">
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="#contains">Contains</a></li>
-                            <li><a href="#its_equal">It's equal</a></li>
-                            <li><a href="#greather_than">Greather than ></a></li>
-                            <li><a href="#less_than">Less than  </a></li>
-                            <li class="divider"></li>
-                            <li><a href="#all">Anything</a></li>
-                          </ul>
-                        </div>
-                        <input type="hidden" name="search_param" value="all" id="search_param">
-                        <input type="search" class="form-control search-radius" name="search-template" placeholder="Search or select template " id="search-box">
-                        <span class="divider-border"></span>
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                            <span class="caret"></span>
-                                        </button>
-                
-                      </div>
+                        <div class="input-group mt-4">
+                            <div class="input-group-btn search-panel">
+                                <ul id="myUL" class="dropdown-menu col-12" role="menu">
+                                    <li><a href="#">Adele</a></li>
+                                    <li><a href="#">Agnes</a></li>
+            
+                                    <li><a href="#">Billy</a></li>
+                                    <li><a href="#">Bob</a></li>
+            
+                                    <li><a href="#">Calvin</a></li>
+                                    <li><a href="#">Christina</a></li>
+                                    <li><a href="#">Cindy</a></li>
+                                </ul>
+                            </div>
+                            
+                            <input type="search" class="form-control search-radius" onkeyup="myFunction()" name="search-template" placeholder="Search or select template " id="search-box">
+                            <span class="divider-border"></span>
+                            <button type="button" class="btn btn-default dropdown-toggle"  data-toggle="dropdown">
+                                <span class="caret"></span>
+                            </button>
+                    
+                          </div>
                     </div>
                     <!-- /Searchbar -->
                 
@@ -57,6 +60,7 @@
                     <div class="col-6">
                       <div id="result">
                       <!--search result will come here-->
+                      
                       </div>
                     </div>
                   </div>
@@ -95,31 +99,68 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 <script>
-       $("#search-box").keyup(function() {
-  var uls = "";
-  //empty any result under results div
-  $(".results").empty();
-  var search = $(this).val().toUpperCase();
-  //checking if seacrh is not empty
-  if (search != null && search != "") {
-    uls = "<ul class='results'>";
-    //looping through li
-    $(".dropdown-menu  > li a").each(function() {
-      //checking if value of <a> and search same
-      if ($(this).text().toUpperCase().indexOf(search) > -1) {
-        //append that value to show under results
-        uls += "<li><a href='#'>" + $(this).text() + "</a></li>";
-
+    function myFunction() {
+      // Declare variables
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById('search-box');
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myUL");
+      li = ul.getElementsByTagName('li');
+    
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
       }
-    });
-    uls += "</ul>";
-    //add to div
-    $("#result").html(uls);
-  }
+    }
+</script>
 
+<script>
+$('#search-box').on('input', function() {
+  $('#myUL').css('display', $(this).val()  !== '' ? 'block' : 'none')
+});
+</script>
 
-})
+<!--<script>
+    $("#search-box").keyup(function() {
+        var uls = "";
+        //empty any result under results div
+        $(".results").empty();
+        var search = $(this).val().toUpperCase();
+        //checking if seacrh is not empty
+        if (search != null && search != "") {
+            uls = "<ul class='results'>";
+            //looping through li
+            $(".dropdown-menu  > li a").each(function() {
+            //checking if value of <a> and search same
+                if ($(this).text().toUpperCase().indexOf(search) > -1) {
+                    //append that value to show under results
+                    uls += "<li><a href='#'>" + $(this).text() + "</a></li>";
+                }
+            });
+            uls += "</ul>";
+            //add to div
+            $("#result").html(uls);
+        }
+    })
+</script>-->
+
+<script>
+    
+        $('button').click(function () { // on a click on botton
+            $('#myUL').show(); // show the div with the search results
+            $('#myUL').css({
+                'margin-left' : -$('#search-box').outerWidth( true )
+            });
+        })
+    
 </script>
 
 <script>
