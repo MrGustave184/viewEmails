@@ -31,13 +31,13 @@ body {
     width: 150px;
     color: white;
 }
-.square1 {
+#square1 {
     background: #00aa9d;
     top: 350px;
     left: 540px;
 }
 
-.square2 {
+#square2 {
     background: #2b3f53;
     top: 350px;
     left: 290px;
@@ -65,19 +65,19 @@ body {
     height: 45%;
 }
 
-.square1 .chart-top {
+#square1 .chart-top {
     background-color:#687b99;
 }
 
-.square2 .chart-top {
+#square2 .chart-top {
     background-color:#f0b192;
 }
 
-.square1 .chart-bottom {
+#square1 .chart-bottom {
     background-color:#d1a7b2;
 }
 
-.square2 .chart-bottom {
+#square2 .chart-bottom {
     background-color:#79ad95;
 }
 
