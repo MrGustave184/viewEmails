@@ -35,19 +35,18 @@
                                 <ul id="myUL" class="dropdown-menu col-12" role="menu">
                                     <li><a href="#">Adele</a></li>
                                     <li><a href="#">Agnes</a></li>
-            
                                     <li><a href="#">Billy</a></li>
                                     <li><a href="#">Bob</a></li>
-            
                                     <li><a href="#">Calvin</a></li>
                                     <li><a href="#">Christina</a></li>
                                     <li><a href="#">Cindy</a></li>
+                                    <li><a href="#">George</a></li>
                                 </ul>
                             </div>
                             
                             <input type="search" class="form-control search-radius" onkeyup="myFunction()" name="search-template" placeholder="Search or select template " id="search-box">
                             <span class="divider-border"></span>
-                            <button type="button" class="btn btn-default dropdown-toggle"  data-toggle="dropdown">
+                            <button type="button" class="btn btn-default dropdown-toggle" id="search-box-btn" data-toggle="dropdown" onclick="light_input()">
                                 <span class="caret"></span>
                             </button>
                     
@@ -55,14 +54,6 @@
                     </div>
                     <!-- /Searchbar -->
                 
-                  </div>
-                  <div class="row">
-                    <div class="col-6">
-                      <div id="result">
-                      <!--search result will come here-->
-                      
-                      </div>
-                    </div>
                   </div>
                
 
@@ -94,16 +85,25 @@
     </div>
 
 
-
 <!-- Bootstrap and jQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!--Test function for li-->
+<!--<script>
+                                        
+    let selectUL = document.getElementById('myUL');
+    let array = ['Lorem ipsum dolor sit, amet consectetur adipisicing elit.','Unde eos at non possimus culpa eius, doloremque, dolorem repudiandae ea illum porro,','sunt vel molestiae accusantium facilis. Necessitatibus nemo','bc','bf','ck','lp','th','et']
+    for(var i = 0; i < 1000; i++){
+        var item = array[Math.floor(Math.random() * array.length)];
+        $('#myUL').append("<li><a href='#'>"+"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde eos at non possimus culpa eius, doloremque, dolorem repudiandae ea illum porro, sunt vel molestiae accusantium facilis."+item+i+"</a></li>");
+    }
 
+</script>-->
 <script>
     function myFunction() {
       // Declare variables
-      var input, filter, ul, li, a, i, txtValue;
+      let input, filter, ul, li, a, i, txtValue;
       input = document.getElementById('search-box');
       filter = input.value.toUpperCase();
       ul = document.getElementById("myUL");
@@ -129,18 +129,18 @@
 </script>
 
 <script>
-        $('button').click(function () { // on a click on botton
-            $('#myUL').show(); // show the div with the search results
+        $('#search-box-btn').click(function () { // on a click on botton
+            //$('#myUL').show(); // show the div with the search results
             $('#myUL').css({
                 'margin-left' : -$('#search-box').outerWidth( true )
-            });
+            }).show();
         })
 
         $("li").on("click", function(){
-    $("#search-box").val($(this).text());
-    $('#myUL').hide();
-    // myFunction(); You can put this here if you want to search right after a user clicked
-});
+            $("#search-box").val($(this).text());
+            $('#myUL').hide();
+            // myFunction(); You can put this here if you want to search right after a user clicked
+        });
 </script>
 
 <script>
@@ -163,17 +163,26 @@
     var table = document.getElementById('table');
     var square1 = document.getElementById('square1');
     var square2 = document.getElementById('square2');
+    var ul = document.getElementById("myUL");
     document.onclick = function(e){
         if(e.target.id == 'content'){
             table.style.transform = 'translate(0px, 0px)';
             square1.style.transform = 'translate(0px, 0px)';
             square2.style.transform = 'translate(0px, 0px)';
+            ul.style.display = 'none';
         }
         
     }
   
 </script>
 
+<script>
+    function light_input(){
+        var search = document.getElementById('search-box');
+        var button = document.getElementById('search-box-btn');
+       
+    }
+</script>
 
 </body>
 </html>

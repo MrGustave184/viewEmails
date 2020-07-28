@@ -81,20 +81,16 @@ body {
     background-color:#79ad95;
 }
 
-#search-box
-{
-   border-style:none;
+#search-box{
+    border-style:none;
+    border-radius: 5px 0px 0px 5px ; 
+    height: 3rem;
+    background: #EEEEEE ;
 }
 
 .divider-border{
     border-right: 2px solid #DFD6D6!important ;
     height: auto;
-}
-
-.search-radius{
-    border-radius: 5px 0px 0px 5px !important; 
-    height: 3rem;
-    background: #EEEEEE ;
 }
 
 .btn-default{
@@ -115,12 +111,12 @@ input:focus ~ .btn-default {
     background: white !important;
 }
 
-  .btn:focus,.btn:active {
+.btn:focus,.btn:active {
     outline: none !important;
     box-shadow: none;
+    background: white;
  }
 
- 
  input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
     height: 1em;
@@ -128,49 +124,20 @@ input:focus ~ .btn-default {
     font-weight: 700;
     background : url("images/baseline_clear_black_18dp.png") ;
  }
-
- .results {
-    /* Remove default list styling */
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .results li a {
-    border: 1px solid #ddd;
-    background-color: #f6f6f6;
-    padding: 12px;
-    font-size: 18px;
-    color: black;
-    display: block
-  }
-
-  #myUL{
-    display: none;
-  }
- 
-#myInput {
-    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
-    background-position: 10px 12px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 100%; /* Full-width */
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
-  }
   
   #myUL {
     /* Remove default list styling */
     list-style-type: none;
     padding: 0;
     margin: 0;
+    overflow-y: scroll;
+    min-height: fit-content;
+    max-height: 15rem;
   }
   
   #myUL li a {
-    border: 1px solid #ddd; /* Add a border to all links */
     margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6; /* Grey background color */
+    background-color: white; /* Grey background color */
     padding: 12px; /* Add some padding */
     text-decoration: none; /* Remove default text underline */
     font-size: 18px; /* Increase the font-size */
@@ -181,4 +148,16 @@ input:focus ~ .btn-default {
   #myUL li a:hover:not(.header) {
     background-color: #eee; /* Add a hover effect to all links, except for headers */
   }
+
+  ::-webkit-scrollbar-thumb {
+    background: #737272; 
+    border-radius: 20px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    background: white;
+  }
+  
  
+  
