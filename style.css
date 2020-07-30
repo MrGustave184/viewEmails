@@ -19,7 +19,7 @@ body {
 #content {
     border: 1px solid #97accf;
     height: 100vh;
-    background-color: #97accf;
+    /*background-color: #97accf;*/
 }
 
 .piechart {
@@ -83,18 +83,18 @@ body {
 
 #search-box{
     border-style:none;
-    border-radius: 5px 0px 0px 5px ; 
+    border-radius: 5px 0px 0px 0px ; 
     height: 3rem;
     background: #EEEEEE ;
 }
 
 .divider-border{
-    border-right: 2px solid #DFD6D6!important ;
+    border-right: 2px solid #DFD6D6;
     height: auto;
 }
 
 .btn-default{
-    border-radius: 0px 5px 5px 0px !important;
+    border-radius: 0px 5px 0px 0px !important;
     background: #EEEEEE ;
 }
 
@@ -102,18 +102,18 @@ input[type=search]:focus {
     outline:none !important;
     outline-width: 0 !important;
     background: white !important;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
+    box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
 
 input:focus ~ .btn-default {
-    background: white !important;
+    background: white ;
+    box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
 
-.btn:focus,.btn:active {
+.btn-default:focus,.btn-default:active {
     outline: none !important;
     box-shadow: none;
+    box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2);
     background: white;
  }
 
@@ -132,12 +132,16 @@ input:focus ~ .btn-default {
     margin: 0;
     overflow-y: scroll;
     min-height: fit-content;
-    max-height: 15rem;
+    max-height: 13rem;
+    border: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.01), 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+    /*margin-top: -0.5px; /*This hide the line between the input and the search list*/
+    border-radius: 0px 5px 0px 0px !important;
   }
   
   #myUL li a {
     margin-top: -1px; /* Prevent double borders */
-    background-color: white; /* Grey background color */
+    background-color: #ffffff; /* Grey background color */
     padding: 12px; /* Add some padding */
     text-decoration: none; /* Remove default text underline */
     font-size: 18px; /* Increase the font-size */
