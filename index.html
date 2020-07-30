@@ -29,7 +29,7 @@
             <section class="col-10" id="content">
                 <div class="row">
                     <!-- Searchbar -->
-                    <div class="col-6">
+                    <div class="col-5">
                         <div class="input-group mt-4">
                             <div class="input-group-btn search-panel">
                                 <ul id="myUL" class="dropdown-menu col-12" role="menu">
@@ -41,16 +41,18 @@
                                     <li><a href="#">Christina</a></li>
                                     <li><a href="#">Cindy</a></li>
                                     <li><a href="#">George</a></li>
+                                    <li><a href="#">Sam</a></li>
+                                    <li><a href="#">Alis</a></li>
+                                    <li><a href="#">Alberto</a></li>
                                 </ul>
                             </div>
-                            
-                            <input type="search" class="form-control search-radius" onkeyup="myFunction()" name="search-template" placeholder="Search or select template " id="search-box">
+                            <input type="search" class="form-control search-radius" onkeyup="searchFilter()" name="search-template" placeholder="Search or select template " id="search-box">
                             <span class="divider-border"></span>
-                            <button type="button" class="btn btn-default dropdown-toggle" id="search-box-btn" data-toggle="dropdown" onclick="light_input()">
+                            <button type="button" class="btn btn-default dropdown-toggle" id="search-box-btn" data-toggle="dropdown">
                                 <span class="caret"></span>
                             </button>
                     
-                          </div>
+                        </div>
                     </div>
                     <!-- /Searchbar -->
                 
@@ -101,7 +103,7 @@
 
 </script>-->
 <script>
-    function myFunction() {
+    function searchFilter() {
       // Declare variables
       let input, filter, ul, li, a, i, txtValue;
       input = document.getElementById('search-box');
@@ -129,18 +131,20 @@
 </script>
 
 <script>
-        $('#search-box-btn').click(function () { // on a click on botton
-            //$('#myUL').show(); // show the div with the search results
-            $('#myUL').css({
-                'margin-left' : -$('#search-box').outerWidth( true )
-            }).show();
-        })
+    let myUL = document.getElementById("myUL");
+    let search = document.getElementById('search-box');
+    $('#search-box-btn').click(function () { // on a click on botton
+        //$('#myUL').show(); // show the div with the search results
+        $('#myUL').css({
+            'margin-left' : -$('#search-box').outerWidth( true )
+        }).toggle();
+    })
 
-        $("li").on("click", function(){
-            $("#search-box").val($(this).text());
-            $('#myUL').hide();
-            // myFunction(); You can put this here if you want to search right after a user clicked
-        });
+    $("li").on("click", function(){
+        $("#search-box").val($(this).text());
+        $('#myUL').hide();
+        // myFunction(); You can put this here if you want to search right after a user clicked
+    });
 </script>
 
 <script>
@@ -178,9 +182,11 @@
 
 <script>
     function light_input(){
-        var search = document.getElementById('search-box');
-        var button = document.getElementById('search-box-btn');
-       
+        let search = document.getElementById('search-box');
+        let button = document.getElementById('search-box-btn');
+        button.style.background = 'white';
+        search.style.background = 'white';
+        search.style.boxShadow = 'inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2)';
     }
 </script>
 
