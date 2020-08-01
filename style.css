@@ -137,6 +137,8 @@ input:focus ~ .btn-default {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.01), 0 6px 10px 0 rgba(0, 0, 0, 0.2);
     /*margin-top: -0.5px; /*This hide the line between the input and the search list*/
     border-radius: 0px 5px 0px 0px !important;
+    transform: translate3d(0px,0px,0px) !important;
+    top: 47px !important;
   }
   
   #myUL li a {

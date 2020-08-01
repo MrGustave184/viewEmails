@@ -136,7 +136,7 @@
     $('#search-box-btn').click(function () { // on a click on botton
         //$('#myUL').show(); // show the div with the search results
         $('#myUL').css({
-            'margin-left' : -$('#search-box').outerWidth( true )
+            //'margin-left' : -$('#search-box').outerWidth( true )
         }).toggle();
     })
 
@@ -180,15 +180,44 @@
   
 </script>
 
-<script>
+<!--<script>
     function light_input(){
         let search = document.getElementById('search-box');
         let button = document.getElementById('search-box-btn');
-        button.style.background = 'white';
-        search.style.background = 'white';
-        search.style.boxShadow = 'inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2)';
+        //search default style
+        search.style.borderStyle = 'none';
+        search.style.borderRadius = '5px 0px 0px 0px ';
+        search.style.height = ' 3rem';
+        search.style.background = '#EEEEEE';
+        button.style.borderRadius = '0px 5px 0px 0px';
+        document.onclick = function(e){
+            if(e.target.id == 'search-box-btn' || e.target.id == 'search-box'){
+                search.style.borderRadius = '5px 0px 0px 0px ';
+                search.style.height = ' 3rem';
+                search.style.background = 'white';
+                search.style.outline = 'none';
+                search.style.outlineWidth = '0';
+                search.style.boxShadow = 'inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2)';
+                button.style.borderRadius = '0px 5px 0px 0px';
+                button.style.boxShadow = 'inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2)';
+                button.style.background = 'white';
+                button.style.outline = 'none';
+            
+            }
+            else{
+                search.style.borderStyle = 'none';
+                search.style.borderRadius = '5px 0px 0px 0px ';
+                search.style.height = ' 3rem';
+                search.style.background = '#EEEEEE';
+                search.style.boxShadow = 'none';
+                button.style.borderRadius = '0px 5px 0px 0px';
+                button.style.background = '#EEEEEE';
+                button.style.boxShadow = 'none'
+                
+            }
+        }
     }
-</script>
+</script>-->
 
 </body>
 </html>
