@@ -86,6 +86,7 @@ body {
     border-radius: 5px 0px 0px 0px ; 
     height: 3rem;
     background: #EEEEEE ;
+    position:relative;
 }
 
 .divider-border{
@@ -138,6 +139,7 @@ input:focus ~ .btn-default {
     /*margin-top: -0.5px; /*This hide the line between the input and the search list*/
     border-radius: 0px 5px 0px 0px !important;
     transform: translate3d(0px,0px,0px) !important;
+    position:absolute;
     top: 47px !important;
   }
   
