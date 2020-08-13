@@ -141,6 +141,7 @@ input:focus ~ .btn-default {
     transform: translate3d(0px,0px,0px) !important;
     position:absolute;
     top: 47px !important;
+    width: 100%;
   }
   
   #myUL li a {
@@ -167,5 +168,10 @@ input:focus ~ .btn-default {
     background: white;
   }
   
- 
-  
+ .col-5{
+    display: contents; 
+ }
+  .input-group{
+      
+    width: max-content;
+  }
