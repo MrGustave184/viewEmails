@@ -168,10 +168,15 @@ input:focus ~ .btn-default {
     background: white;
   }
   
- .col-5{
+/* .col-8{
     display: contents; 
- }
+ }*/
   .input-group{
       
-    width: max-content;
+    width: 80vw;
   }
+
+  /* .col-5.parent{
+    display: contents; 
+ }
+*/

@@ -9,27 +9,130 @@
     <!-- Our css -->
     <link rel="stylesheet" href="style.css">
     <title>Emails View</title>
+    <!--<script src="search.js"></script>-->
 </head>
 <body>
     <div class="container-fluid">
 
-        <div class="row">
-            <section class="col-12 text-center" id="top-menu">
-                <h1>Top Section</h1>
-            </section>
-        </div>
-
+    
 
            
-        <div class="row">
-            <section class="col-2 text-center" id="sidebar">
-                <h3>Sidebar Menu</h3>
-            </section>
+       
+           
+                <!--<div class="row">
+                    
+                    <div class="col-8 parent" >
+                        
+                            <div class="input-group mt-4 ml-2">
+                                <input type="search" class="form-control search-radius" onkeyup="searchFilter()" name="search-template" placeholder="Search or select template " id="search-box">
+                                <span class="divider-border"></span>
+                                <button type="button" class="btn btn-default dropdown-toggle" id="search-box-btn" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <div id="myUL" class="dropdown-menu " role="menu">
+                                    <li><a href="#">Adele</a></li>
+                                    <li><a href="#">Agnes</a></li>
+                                    <li><a href="#">Billy</a></li>
+                                    <li><a href="#">Bob</a></li>
+                                    <li><a href="#">Calvin</a></li>
+                                    <li><a href="#">Christina</a></li>
+                                    <li><a href="#">Cindy</a></li>
+                                    <li><a href="#">George</a></li>
+                                    <li><a href="#">Sam</a></li>
+                                    <li><a href="#">Alis</a></li>
+                                    <li><a href="#">Alberto</a></li>
+                                </div>
+                            </div>
+                        
+                        
+                    </div>
+                  -->
+                
+              
+               
 
-            <section class="col-10" id="content">
-                <div class="row">
-                    <!-- Searchbar -->
-                    <div class="col-5">
+
+        
+    </div>
+
+
+<!-- Bootstrap and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!--Test function for li-->
+<!--<script>
+                                        
+    let selectUL = document.getElementById('myUL');
+    let array = ['Lorem ipsum dolor sit, amet consectetur adipisicing elit.','Unde eos at non possimus culpa eius, doloremque, dolorem repudiandae ea illum porro,','sunt vel molestiae accusantium facilis. Necessitatibus nemo','bc','bf','ck','lp','th','et']
+    for(var i = 0; i < 1000; i++){
+        var item = array[Math.floor(Math.random() * array.length)];
+        $('#myUL').append("<li><a href='#'>"+"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde eos at non possimus culpa eius, doloremque, dolorem repudiandae ea illum porro, sunt vel molestiae accusantium facilis."+item+i+"</a></li>");
+    }
+
+</script>-->
+
+<script>
+    this.addSearchHTML();
+    var li, a, i,filter,txtValue;
+    function searchFilter(){
+    let input, ul;
+    input = document.getElementById('search-box');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+    //Timer for the search field
+	let typingTimer;
+    let previousValue = '';
+    //If the key pressed actually changed the search string
+		if(input.value != this.previousValue){
+			//This is how you can wait a set amount of time in javascript
+			//setTimeout(function, miliseconds to wait before running the function)
+
+			//Clear the timeout of the function to prevent to fire the event in a separate branch each time
+			//we press a key, creating an unnecessary function stack. Instead, we use the same function call
+			//wich will wait until we stop typing to run after 2 seconds
+			//clearTimeout(this.typingTimer);
+
+			//If the search field is not empty, do search, else, do not show the loader icon and 
+			//clear the results area
+			if(input.value){
+                
+                //------------------------------------------
+                this.typingTimer = setTimeout(this.searchNames(), 9000);
+                //this.typingTimer = setTimeout(() => this.searchNames().bind(this), 3000);
+                console.log(this.typingTimer)
+                //----------------------------------------
+				//Timer function
+				
+			} 
+		}
+
+		//Keep track of the search string value
+        this.previousValue = input.value;
+    }
+
+    function searchNames(){
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+                //console.log('primerIF')
+            } else {
+                li[i].style.display = "none";
+                //console.log('segundoIF')
+            }
+        }
+    } 
+
+    function addSearchHTML(){
+//The append method adds at the end of the selected element(the body in this case)
+    $("body").append(`
+    <div class="row">
+                
+                <div class="col-8 parent" >
+                    
                         <div class="input-group mt-4 ml-2">
                             <input type="search" class="form-control search-radius" onkeyup="searchFilter()" name="search-template" placeholder="Search or select template " id="search-box">
                             <span class="divider-border"></span>
@@ -50,75 +153,10 @@
                                 <li><a href="#">Alberto</a></li>
                             </div>
                         </div>
-                    </div>
-                    <!-- /Searchbar -->
-                
-                  </div>
-               
-
-                <div class="piechart " id="square1">
-                    <div data-chart="2" data-position="top" class="chart-section chart-top">
-                        Chart 2 - Section 1
-                    </div>
-                    <div class="chartLine"></div>
-                    <div class="chart-section chart-bottom">
-                        Chart 2 - Section 2
-                    </div>
-                </div>
-                <div class="piechart " id="square2">
-                    <div data-chart="1" class="chart-section chart-top">
-                        Chart 1 - Section 1
-                    </div>
-                    <div class="chartLine"></div>
-                    <div class="chart-section chart-bottom">
-                        Chart 1 - Section 2
-                    </div>
-                </div>
-
-            </section>
-        </div>
-
-        <section id="table">
-            Participants table
-        </section>
-    </div>
-
-
-<!-- Bootstrap and jQuery -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<!--Test function for li-->
-<!--<script>
-                                        
-    let selectUL = document.getElementById('myUL');
-    let array = ['Lorem ipsum dolor sit, amet consectetur adipisicing elit.','Unde eos at non possimus culpa eius, doloremque, dolorem repudiandae ea illum porro,','sunt vel molestiae accusantium facilis. Necessitatibus nemo','bc','bf','ck','lp','th','et']
-    for(var i = 0; i < 1000; i++){
-        var item = array[Math.floor(Math.random() * array.length)];
-        $('#myUL').append("<li><a href='#'>"+"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde eos at non possimus culpa eius, doloremque, dolorem repudiandae ea illum porro, sunt vel molestiae accusantium facilis."+item+i+"</a></li>");
-    }
-
-</script>-->
-<script>
-    function searchFilter() {
-      // Declare variables
-      let input, filter, ul, li, a, i, txtValue;
-      input = document.getElementById('search-box');
-      filter = input.value.toUpperCase();
-      ul = document.getElementById("myUL");
-      li = ul.getElementsByTagName('li');
-    
-      // Loop through all list items, and hide those who don't match the search query
-      for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          li[i].style.display = "";
-        } else {
-          li[i].style.display = "none";
-        }
-      }
-    }
+                    
+                    
+                </div>`);
+            }
 </script>
 
 <script>
