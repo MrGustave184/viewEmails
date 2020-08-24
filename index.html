@@ -92,15 +92,17 @@
 			//Clear the timeout of the function to prevent to fire the event in a separate branch each time
 			//we press a key, creating an unnecessary function stack. Instead, we use the same function call
 			//wich will wait until we stop typing to run after 2 seconds
-			//clearTimeout(this.typingTimer);
+			clearTimeout(this.typingTimer);
 
 			//If the search field is not empty, do search, else, do not show the loader icon and 
 			//clear the results area
 			if(input.value){
                 
                 //------------------------------------------
-                this.typingTimer = setTimeout(this.searchNames(), 9000);
-                //this.typingTimer = setTimeout(() => this.searchNames().bind(this), 3000);
+                //this.typingTimer = setTimeout(this.searchNames(), 9000);
+                this.typingTimer =  setTimeout(()=>{
+                    this.searchNames();
+                },750);
                 console.log(this.typingTimer)
                 //----------------------------------------
 				//Timer function
@@ -158,6 +160,7 @@
                 </div>`);
             }
 </script>
+
 
 <script>
     $('#search-box').on('input', function() {
