@@ -33,26 +33,18 @@
 </script>-->
 
 <script src="search.js"></script>
-<script>
-    $('#search-box').on('input', function() {
-        $('#myUL').css('display', $(this).val()  !== '' ? 'block' : 'none')
-    });
-</script>
 
 <script>
-    let myUL = document.getElementById("myUL");
-    let search = document.getElementById('search-box');
-    $('#search-box-btn').click(function () { // on a click on botton
-        //$('#myUL').show(); // show the div with the search results
-        $('#myUL').css({
-            //'margin-left' : -$('#search-box').outerWidth( true )
-        }).toggle();
-    })
-
     $("li").on("click", function(){
         $("#search-box").val($(this).text());
         $('#myUL').hide();
         // myFunction(); You can put this here if you want to search right after a user clicked
+    });   
+</script>
+
+<script>
+    $('#search-box').on('input', function() {
+        $('#myUL').css('display', $(this).val()  !== '' ? 'block' : 'none')
     });
 </script>
 

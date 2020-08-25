@@ -1,4 +1,12 @@
-this.addSearchHTML();
+    this.addSearchHTML();
+
+    $('#search-box-btn').click(function () { // on a click on botton
+        //$('#myUL').show(); // show the div with the search results
+        $('#myUL').css({
+            //'margin-left' : -$('#search-box').outerWidth( true )
+        }).toggle();
+    })
+
     var li, a, i,filter,txtValue;
     function searchFilter(){
     let input, ul;
@@ -17,7 +25,7 @@ this.addSearchHTML();
 			//Clear the timeout of the function to prevent to fire the event in a separate branch each time
 			//we press a key, creating an unnecessary function stack. Instead, we use the same function call
 			//wich will wait until we stop typing to run after 2 seconds
-			clearTimeout(this.typingTimer);
+			clearTimeout(typingTimer);
 
 			//If the search field is not empty, do search, else, do not show the loader icon and 
 			//clear the results area
@@ -25,10 +33,10 @@ this.addSearchHTML();
                 
                 //------------------------------------------
                 //this.typingTimer = setTimeout(this.searchNames(), 9000);
-                this.typingTimer =  setTimeout(()=>{
+                typingTimer =  setTimeout(()=>{
                     this.searchNames();
                 },500);
-                console.log(this.typingTimer)
+                console.log(typingTimer)
                 //----------------------------------------
 				//Timer function
 				
@@ -36,7 +44,7 @@ this.addSearchHTML();
 		}
 
 		//Keep track of the search string value
-        this.previousValue = input.value;
+        previousValue = input.value;
     }
 
     function searchNames(){
@@ -54,9 +62,9 @@ this.addSearchHTML();
     } 
 
     function addSearchHTML(){
-//The append method adds at the end of the selected element(the body in this case)
-    $(".container-fluid").append(`
-    <div class="row">
+    //The append method adds at the end of the selected element(the body in this case)
+        $(".container-fluid").append(`
+            <div class="row">
                 
                 <div class="col-8 parent" >
                     
@@ -82,18 +90,21 @@ this.addSearchHTML();
                         </div>
                     
                     
-                </div>`);
-            }
+            </div>`);
+    }
 
-    this.inputWidth('400px');
+    this.inputWidth('300px');
     function inputWidth(size) {
         let inputWidth = document.getElementById('#input-group');
         inputWidth.style.width = size;
     }
-    
+
     this.changeName('hola');
     function changeName(name){
-        let input = document.getElementById('search-box');
-        input.setAttribute("name",name);
-
+        let inputSearch = document.getElementById('search-box');
+        inputSearch.setAttribute("name",name);
     }
+
+    
+       
+    
