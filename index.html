@@ -9,50 +9,10 @@
     <!-- Our css -->
     <link rel="stylesheet" href="style.css">
     <title>Emails View</title>
-    <!--<script src="search.js"></script>-->
 </head>
 <body>
     <div class="container-fluid">
 
-    
-
-           
-       
-           
-                <!--<div class="row">
-                    
-                    <div class="col-8 parent" >
-                        
-                            <div class="input-group mt-4 ml-2">
-                                <input type="search" class="form-control search-radius" onkeyup="searchFilter()" name="search-template" placeholder="Search or select template " id="search-box">
-                                <span class="divider-border"></span>
-                                <button type="button" class="btn btn-default dropdown-toggle" id="search-box-btn" data-toggle="dropdown">
-                                    <span class="caret"></span>
-                                </button>
-                                <div id="myUL" class="dropdown-menu " role="menu">
-                                    <li><a href="#">Adele</a></li>
-                                    <li><a href="#">Agnes</a></li>
-                                    <li><a href="#">Billy</a></li>
-                                    <li><a href="#">Bob</a></li>
-                                    <li><a href="#">Calvin</a></li>
-                                    <li><a href="#">Christina</a></li>
-                                    <li><a href="#">Cindy</a></li>
-                                    <li><a href="#">George</a></li>
-                                    <li><a href="#">Sam</a></li>
-                                    <li><a href="#">Alis</a></li>
-                                    <li><a href="#">Alberto</a></li>
-                                </div>
-                            </div>
-                        
-                        
-                    </div>
-                  -->
-                
-              
-               
-
-
-        
     </div>
 
 
@@ -72,96 +32,7 @@
 
 </script>-->
 
-<script>
-    this.addSearchHTML();
-    var li, a, i,filter,txtValue;
-    function searchFilter(){
-    let input, ul;
-    input = document.getElementById('search-box');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName('li');
-    //Timer for the search field
-	let typingTimer;
-    let previousValue = '';
-    //If the key pressed actually changed the search string
-		if(input.value != this.previousValue){
-			//This is how you can wait a set amount of time in javascript
-			//setTimeout(function, miliseconds to wait before running the function)
-
-			//Clear the timeout of the function to prevent to fire the event in a separate branch each time
-			//we press a key, creating an unnecessary function stack. Instead, we use the same function call
-			//wich will wait until we stop typing to run after 2 seconds
-			clearTimeout(this.typingTimer);
-
-			//If the search field is not empty, do search, else, do not show the loader icon and 
-			//clear the results area
-			if(input.value){
-                
-                //------------------------------------------
-                //this.typingTimer = setTimeout(this.searchNames(), 9000);
-                this.typingTimer =  setTimeout(()=>{
-                    this.searchNames();
-                },750);
-                console.log(this.typingTimer)
-                //----------------------------------------
-				//Timer function
-				
-			} 
-		}
-
-		//Keep track of the search string value
-        this.previousValue = input.value;
-    }
-
-    function searchNames(){
-        for (i = 0; i < li.length; i++) {
-            a = li[i].getElementsByTagName("a")[0];
-            txtValue = a.textContent || a.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                li[i].style.display = "";
-                //console.log('primerIF')
-            } else {
-                li[i].style.display = "none";
-                //console.log('segundoIF')
-            }
-        }
-    } 
-
-    function addSearchHTML(){
-//The append method adds at the end of the selected element(the body in this case)
-    $("body").append(`
-    <div class="row">
-                
-                <div class="col-8 parent" >
-                    
-                        <div class="input-group mt-4 ml-2">
-                            <input type="search" class="form-control search-radius" onkeyup="searchFilter()" name="search-template" placeholder="Search or select template " id="search-box">
-                            <span class="divider-border"></span>
-                            <button type="button" class="btn btn-default dropdown-toggle" id="search-box-btn" data-toggle="dropdown">
-                                <span class="caret"></span>
-                            </button>
-                            <div id="myUL" class="dropdown-menu " role="menu">
-                                <li><a href="#">Adele</a></li>
-                                <li><a href="#">Agnes</a></li>
-                                <li><a href="#">Billy</a></li>
-                                <li><a href="#">Bob</a></li>
-                                <li><a href="#">Calvin</a></li>
-                                <li><a href="#">Christina</a></li>
-                                <li><a href="#">Cindy</a></li>
-                                <li><a href="#">George</a></li>
-                                <li><a href="#">Sam</a></li>
-                                <li><a href="#">Alis</a></li>
-                                <li><a href="#">Alberto</a></li>
-                            </div>
-                        </div>
-                    
-                    
-                </div>`);
-            }
-</script>
-
-
+<script src="search.js"></script>
 <script>
     $('#search-box').on('input', function() {
         $('#myUL').css('display', $(this).val()  !== '' ? 'block' : 'none')
@@ -217,45 +88,6 @@
     }
   
 </script>
-
-<!--<script>
-    function light_input(){
-        let search = document.getElementById('search-box');
-        let button = document.getElementById('search-box-btn');
-        //search default style
-        search.style.borderStyle = 'none';
-        search.style.borderRadius = '5px 0px 0px 0px ';
-        search.style.height = ' 3rem';
-        search.style.background = '#EEEEEE';
-        button.style.borderRadius = '0px 5px 0px 0px';
-        document.onclick = function(e){
-            if(e.target.id == 'search-box-btn' || e.target.id == 'search-box'){
-                search.style.borderRadius = '5px 0px 0px 0px ';
-                search.style.height = ' 3rem';
-                search.style.background = 'white';
-                search.style.outline = 'none';
-                search.style.outlineWidth = '0';
-                search.style.boxShadow = 'inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2)';
-                button.style.borderRadius = '0px 5px 0px 0px';
-                button.style.boxShadow = 'inset 1px 2px 4px rgba(0, 0, 0, 0.01), 0px 0px 8px rgba(0, 0, 0, 0.2)';
-                button.style.background = 'white';
-                button.style.outline = 'none';
-            
-            }
-            else{
-                search.style.borderStyle = 'none';
-                search.style.borderRadius = '5px 0px 0px 0px ';
-                search.style.height = ' 3rem';
-                search.style.background = '#EEEEEE';
-                search.style.boxShadow = 'none';
-                button.style.borderRadius = '0px 5px 0px 0px';
-                button.style.background = '#EEEEEE';
-                button.style.boxShadow = 'none'
-                
-            }
-        }
-    }
-</script>-->
 
 </body>
 </html>
