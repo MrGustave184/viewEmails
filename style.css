@@ -33,14 +33,12 @@ body {
 }
 #square1 {
     background: #00aa9d;
-    top: 350px;
-    left: 540px;
+    left: 20px;
 }
 
 #square2 {
     background: #2b3f53;
-    top: 350px;
-    left: 290px;
+    left: 200px;
 }
 
 #table {
@@ -168,10 +166,3 @@ input:focus ~ .btn-default {
     background: white;
   }
   
- .col-5{
-    display: contents; 
- }
-  .input-group{
-      
-    width: max-content;
-  }

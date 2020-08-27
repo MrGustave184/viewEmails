@@ -55,23 +55,24 @@
                 
                   </div>
                
-
-                <div class="piechart " id="square1">
-                    <div data-chart="2" data-position="top" class="chart-section chart-top">
-                        Chart 2 - Section 1
+                <div class="col-5">
+                    <div class="piechart " id="square1">
+                        <div data-chart="2" data-position="top" class="chart-section chart-top">
+                            Chart 2 - Section 1
+                        </div>
+                        <div class="chartLine"></div>
+                        <div class="chart-section chart-bottom">
+                            Chart 2 - Section 2
+                        </div>
                     </div>
-                    <div class="chartLine"></div>
-                    <div class="chart-section chart-bottom">
-                        Chart 2 - Section 2
-                    </div>
-                </div>
-                <div class="piechart " id="square2">
-                    <div data-chart="1" class="chart-section chart-top">
-                        Chart 1 - Section 1
-                    </div>
-                    <div class="chartLine"></div>
-                    <div class="chart-section chart-bottom">
-                        Chart 1 - Section 2
+                    <div class="piechart " id="square2">
+                        <div data-chart="1" class="chart-section chart-top">
+                            Chart 1 - Section 1
+                        </div>
+                        <div class="chartLine"></div>
+                        <div class="chart-section chart-bottom">
+                            Chart 1 - Section 2
+                        </div>
                     </div>
                 </div>
 
@@ -151,10 +152,10 @@
         let chartBackground = pieChart.css('background-color');
         let chartText = pieChart.html();
 
-        $("#square2").css('transform', 'translate(590px, -26px)');
-        $("#square1").css('transform', 'translate(340px, -200px)');
+        $("#square2").css('transform', 'translate(660px, -26px)');
+        $("#square1").css('transform', 'translate(840px, 190px)');
 
-        table.css('background-color', chartBackground).css('transform', 'translate(0px, -458px)').html('Participants Table' + '<br>' + chartText);
+        table.css('background-color', chartBackground).css('transform', 'translate(0px, -500px)').html('Participants Table' + '<br>' + chartText);
     });
 </script>
     
